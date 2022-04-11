@@ -1,0 +1,76 @@
+/*===================
+Color : GREEN 
+*==================*/
+
+.proclinic-bg {
+	background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.proclinic-text-color{
+	color: #21c5dc;
+}
+.pagination .page-link {
+	color: #21c5dc;
+}
+.pagination .page-item.active .page-link {
+	background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-color: #ffffff;
+}
+.btn-primary {
+    background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-color: #ffffff;
+}
+.btn-primary:hover {
+    background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	opacity: 0.75;
+}
+.text-round {
+	background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.btn-outline-primary {
+    color: #21c5dc;
+    border-color: #ffffff;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+	background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.btn-hero-primary{
+	background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-color: #fff;
+}
+.media h5{
+	color: #21c5dc;
+}
+#faq2 .block-header{
+	background: #21c5dc;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #1896a7, #21c5dc);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1896a7, #21c5dc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#faq1 .block-header {
+    color: #21c5dc;
+}
+.widget-title{
+	color: #21c5dc;
+}
+.pricing-h2{
+	color: #21c5dc;
+}
+.pagination .page-link [class^="ti-"], [class*=" ti-"] {
+	color: #21c5dc;
+}
+.block-title-new [class^="ti-"], .block-title-new [class*=" ti-"]{
+	color: #21c5dc;
+}
