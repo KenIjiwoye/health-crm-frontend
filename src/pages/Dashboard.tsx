@@ -2,8 +2,9 @@ import React from 'react'
 import AppointmentList from '../components/dashboard/AppointmentList'
 import DoctorsList from '../components/dashboard/DoctorsList'
 import InfoCard from '../components/dashboard/InfoCard'
+import PageHeader from '../components/PageHeader'
 
-const quickStats =[
+const quickStats = [
     {
         color: 'red',
         title: 'Patients',
@@ -96,15 +97,18 @@ const doctors = [
 ]
 
 export default function Dashboard() {
-  return (
-    <div className="container home">
-        <div className="row">
-            {quickStats.map((q,i) => <InfoCard key={i} color={q.color} title={q.title} value={q.value} />)}
-        </div>
-        <div className="row">
-            <AppointmentList appointments={appointments} />
-            <DoctorsList doctors={doctors} />
-        </div>
-    </div>
-  )
+    return (
+        <>
+            <PageHeader title={'Quick Statistics'} items={['Dashboard', 'Test']} />
+            <div className="container home">
+                <div className="row">
+                    {quickStats.map((q, i) => <InfoCard key={i} color={q.color} title={q.title} value={q.value} />)}
+                </div>
+                <div className="row">
+                    <AppointmentList appointments={appointments} />
+                    <DoctorsList doctors={doctors} />
+                </div>
+            </div>
+        </>
+    )
 }
