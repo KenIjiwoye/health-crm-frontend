@@ -1,5 +1,6 @@
 import React from 'react'
 import AppointmentList from '../components/dashboard/AppointmentList'
+import DoctorsList from '../components/dashboard/DoctorsList'
 import InfoCard from '../components/dashboard/InfoCard'
 
 const quickStats =[
@@ -71,6 +72,29 @@ const appointments = [
     },
 ]
 
+const doctors = [
+    {
+        doctorName: 'Dr. Dre',
+        specialty: 'Music',
+        availability: 'On Leave'
+    },
+    {
+        doctorName: 'Dr. James',
+        specialty: 'Chiro',
+        availability: 'Available'
+    },
+    {
+        doctorName: 'Dr. Joy',
+        specialty: 'Dental',
+        availability: 'Not Available'
+    },
+    {
+        doctorName: 'Dr. Fate',
+        specialty: 'Ortho',
+        availability: 'Available'
+    },
+]
+
 export default function Dashboard() {
   return (
     <div className="container home">
@@ -79,6 +103,7 @@ export default function Dashboard() {
         </div>
         <div className="row">
             <AppointmentList appointments={appointments} />
+            <DoctorsList doctors={doctors} />
         </div>
     </div>
   )
