@@ -6,6 +6,7 @@ import Preloader from './components/Preloader';
 import TopNav from './components/TopNav';
 import Dashboard from './pages/Dashboard';
 import AllPatients from './pages/patients/AllPatients';
+import PatientDetails from './pages/patients/PatientDetails';
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -23,7 +24,8 @@ function App() {
         <Menu />
 
         {/* <Dashboard /> */}
-        <AllPatients />
+        {/* <AllPatients /> */}
+        <PatientDetails />
         <Footer />
       </div>
     </div>
