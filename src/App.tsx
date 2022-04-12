@@ -6,6 +6,8 @@ import Preloader from './components/Preloader';
 import TopNav from './components/TopNav';
 import Dashboard from './pages/Dashboard';
 import AllPatients from './pages/patients/AllPatients';
+import EditPatient from './pages/patients/EditPatient';
+import NewPatient from './pages/patients/NewPatient';
 import PatientDetails from './pages/patients/PatientDetails';
 
 function App() {
@@ -25,7 +27,9 @@ function App() {
 
         {/* <Dashboard /> */}
         {/* <AllPatients /> */}
-        <PatientDetails />
+        {/* <PatientDetails /> */}
+        {/* <NewPatient /> */}
+        <EditPatient />
         <Footer />
       </div>
     </div>
