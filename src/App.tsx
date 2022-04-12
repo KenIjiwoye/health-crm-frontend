@@ -5,6 +5,10 @@ import PageHeader from './components/PageHeader';
 import Preloader from './components/Preloader';
 import TopNav from './components/TopNav';
 import Dashboard from './pages/Dashboard';
+import AllDoctors from './pages/doctors/AllDoctors';
+import DoctorDetails from './pages/doctors/DoctorDetails';
+import EditDoctor from './pages/doctors/EditDoctor';
+import NewDoctor from './pages/doctors/NewDoctor';
 import AllPatients from './pages/patients/AllPatients';
 import EditPatient from './pages/patients/EditPatient';
 import NewPatient from './pages/patients/NewPatient';
@@ -26,10 +30,14 @@ function App() {
         <Menu />
 
         {/* <Dashboard /> */}
-        <AllPatients />
+        {/* <AllPatients /> */}
         {/* <PatientDetails /> */}
         {/* <NewPatient /> */}
         {/* <EditPatient /> */}
+        {/* <AllDoctors /> */}
+        {/* <DoctorDetails /> */}
+        {/* <NewDoctor /> */}
+        <EditDoctor />
         <Footer />
       </div>
     </div>
