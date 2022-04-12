@@ -26,10 +26,10 @@ function App() {
         <Menu />
 
         {/* <Dashboard /> */}
-        {/* <AllPatients /> */}
+        <AllPatients />
         {/* <PatientDetails /> */}
         {/* <NewPatient /> */}
-        <EditPatient />
+        {/* <EditPatient /> */}
         <Footer />
       </div>
     </div>

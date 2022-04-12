@@ -68,7 +68,7 @@ export default function Menu() {
 									<a className="dropdown-item" href="edit-room.html">Edit Room Allotment</a>
 								</div>
 							</li>
-							<li className="nav-item dropdown">
+							{/* <li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-layout-tab"></span> UI Kit</a>
 								<div className="dropdown-menu">
@@ -93,8 +93,8 @@ export default function Menu() {
 									<a className="dropdown-item" href="font-awesome.html">Font Awesome </a>
 									<a className="dropdown-item" href="themify.html">Themify</a>
 								</div>
-							</li>
-							<li className="nav-item dropdown">
+							</li> */}
+							{/* <li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-file"></span> Other Pages</a>
 								<div className="dropdown-menu">
@@ -106,7 +106,7 @@ export default function Menu() {
 									<a className="dropdown-item" href="faq.html">FAQ</a>
 									<a className="dropdown-item" href="invoice.html">Invoice</a>
 								</div>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</nav>

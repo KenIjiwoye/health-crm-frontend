@@ -1,32 +1,7 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
 
-const patients = [
-    {
-        id: 1,
-        name: 'Jasper Kumeh',
-        age: 20,
-        phone: '0770554422',
-        lastVisit: '12-03-2021',
-        status: 'Completed'
-    },
-    {
-        id: 2,
-        name: 'Daniel Kumeh',
-        age: 26,
-        phone: '0770554422',
-        lastVisit: '12-03-2021',
-        status: 'Pending'
-    },
-    {
-        id: 3,
-        name: 'Beowulf Ijiwoye',
-        age: 2,
-        phone: '0770554422',
-        lastVisit: '12-03-2021',
-        status: 'Cancelled'
-    },
-]
+import { patients } from '../../interfaces/Patient';
 
 const badgeColor = (status: string) => {
     if (status === 'Completed') return 'success';
@@ -44,7 +19,7 @@ const handleRows = () => {
                 </div>
             </td>
             <td>{p.id}</td>
-            <td>{p.name}</td>
+            <td>{`${p.firstName} ${p.lastName}`}</td>
             <td>{p.age}</td>
             <td>{p.phone}</td>
             <td>{p.lastVisit}</td>

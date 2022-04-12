@@ -10,6 +10,8 @@ export interface Patient {
     address: string;
     photo?: string;
     dateOfBirth: string;
+    lastVisit: string;
+    status: string;
 }
 
 export const patients:Patient[] =[
@@ -22,7 +24,9 @@ export const patients:Patient[] =[
         email: 'j.kumeh@gmail.com',
         gender: 'male',
         address: 'St. Paul Bridge, Monrovia, Liberia',
-        dateOfBirth: '05-10-2001'
+        dateOfBirth: '05-10-2001',
+        lastVisit: '2022-04-04',
+        status: 'Pending'
     },
     {
         id: 2,
@@ -33,7 +37,9 @@ export const patients:Patient[] =[
         email: 'j.kumeh@gmail.com',
         gender: 'male',
         address: 'St. Paul Bridge, Monrovia, Liberia',
-        dateOfBirth: '05-10-1996'
+        dateOfBirth: '05-10-1996',
+        lastVisit: '2022-04-04',
+        status: 'Cancelled'
     },
     {
         id: 3,
@@ -44,7 +50,9 @@ export const patients:Patient[] =[
         email: 'j.snow@the-north.com',
         gender: 'male',
         address: 'North of the Wall',
-        dateOfBirth: '05-10-1992'
+        dateOfBirth: '05-10-1992',
+        lastVisit: '2022-04-04',
+        status: 'Completed'
     },
     {
         id: 4,
@@ -55,6 +63,8 @@ export const patients:Patient[] =[
         email: 's.stark@the-north.com',
         gender: 'female',
         address: 'Kings Landing',
-        dateOfBirth: '05-10-1997'
+        dateOfBirth: '05-10-1997',
+        lastVisit: '2022-04-04',
+        status: 'Completed'
     },
 ]
