@@ -1,5 +1,6 @@
 import React from 'react'
 import { Patient } from '../../interfaces/Patient'
+import {Link} from 'react-router-dom'
 
 type PatientDetailsCardProps = {
     patient: Patient
@@ -59,7 +60,7 @@ export default function PatientDetailsCard({patient}:PatientDetailsCardProps) {
                     </ul>
                 </nav>
                 {/* <!-- /Export links--> */}
-                <button type="button" className="btn btn-success mb-3"><span className="ti-pencil-alt"></span> Edit Patient</button>
+                <button type="button" className="btn btn-success mb-3"><Link to={{ pathname: `/patients/${patient.id}/edit` }} state={{patient}} ><span className="ti-pencil-alt"></span> Edit Patient</Link></button>
                 <button type="button" className="btn btn-danger mb-3"><span className="ti-trash"></span> Delete Patient</button>
                 <button type="button" className="btn btn-info mb-3"><span className="ti-arrow-down"></span> Download File</button>
             </div>

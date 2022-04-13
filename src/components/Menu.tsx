@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Menu() {
   return (
@@ -24,10 +25,10 @@ export default function Menu() {
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-wheelchair"></span> Patients</a>
 								<div className="dropdown-menu">
-									<a className="dropdown-item" href="add-patient.html">Add Patient</a>
-									<a className="dropdown-item" href="patients.html">All Patients</a>
-									<a className="dropdown-item" href="about-patient.html">Patient Details</a>
-									<a className="dropdown-item" href="edit-patient.html">Edit Patient</a>
+									<Link className="dropdown-item" to="/patients/new">Add Patient</Link>
+									<Link className="dropdown-item" to='/patients' >All Patients</Link>
+									{/* <Link className="dropdown-item" to='/patients/1' >Patient Details</Link> */}
+									{/* <a className="dropdown-item" href="/patients/1/edit">Edit Patient</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">

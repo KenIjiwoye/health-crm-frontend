@@ -6,45 +6,46 @@ type PatientFormProps = {
 }
 
 export default function PatientForm({patient}:PatientFormProps) {
+    console.warn('edit patient', patient)
     return (
         <>
             <form>
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="patient-name">Patient Name</label>
-                        <input type="text" className="form-control" placeholder="Patient name" id="patient-name" />
+                        <input type="text" className="form-control" placeholder="Patient name" id="patient-name" value={patient !== undefined ? `${patient?.firstName} ${patient?.lastName}` : ''} />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="dob">Date Of Birth</label>
-                        <input type="date" placeholder="Date of Birth" className="form-control" id="dob" />
+                        <input type="date" placeholder="Date of Birth" className="form-control" id="dob" value={patient !== undefined ? patient.dateOfBirth : ''} />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="age">Age</label>
-                        <input type="text" placeholder="Age" className="form-control" id="age" />
+                        <input type="text" placeholder="Age" className="form-control" id="age" value={patient !== undefined ? patient.age : ''} />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="phone">Phone</label>
-                        <input type="text" placeholder="Phone" className="form-control" id="phone" />
+                        <input type="text" placeholder="Phone" className="form-control" id="phone" value={patient !== undefined ? patient.phone : ''} />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="email">Email</label>
-                        <input type="email" placeholder="email" className="form-control" id="Email" />
+                        <input type="email" placeholder="email" className="form-control" id="Email" value={patient !== undefined ? patient.email : ''} />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="gender">Gender</label>
-                        <select className="form-control" id="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
+                        <select className="form-control" id="gender" value={patient !== undefined ? patient.gender : ''} >
+                            <option value='male' >Male</option>
+                            <option value='female' >Female</option>
+                            <option value='other' >Other</option>
                         </select>
                     </div>
                     <div className="form-group col-md-12">
                         <label htmlFor="exampleFormControlTextarea1">Address</label>
-                        <textarea placeholder="Address" className="form-control" id="exampleFormControlTextarea1" rows={3}></textarea>
+                        <textarea placeholder="Address" className="form-control" id="exampleFormControlTextarea1" rows={3} value={patient !== undefined ? patient.address : ''} ></textarea>
                     </div>
                     <div className="form-group col-md-12">
                         <label htmlFor="file">File</label>
-                        <input type="file" className="form-control" id="file" />
+                        <input type="file" className="form-control" id="file"  value={patient !== undefined ? patient.photo : ''} />
                     </div>
 
                     <div className="form-check col-md-12 mb-2">

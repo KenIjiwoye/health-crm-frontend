@@ -1,5 +1,6 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
+import {Link} from 'react-router-dom'
 
 import { patients } from '../../interfaces/Patient';
 
@@ -11,7 +12,8 @@ const badgeColor = (status: string) => {
 
 const handleRows = () => {
    return patients.map((p) => (
-        <tr>
+       <tr>
+                
             <td>
                 <div className="custom-control custom-checkbox">
                     <input className="custom-control-input" type="checkbox" id="1" />
@@ -19,13 +21,14 @@ const handleRows = () => {
                 </div>
             </td>
             <td>{p.id}</td>
-            <td>{`${p.firstName} ${p.lastName}`}</td>
+            <td><Link  to={{pathname: `${p.id}`}} state={{patient: p }}  >{`${p.firstName} ${p.lastName}`}</Link></td>
             <td>{p.age}</td>
             <td>{p.phone}</td>
             <td>{p.lastVisit}</td>
             <td>
                 <span className={`badge badge-${badgeColor(p.status)}`}>{p.status}</span>
             </td>
+        
         </tr>
     ))
 }

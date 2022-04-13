@@ -13,6 +13,8 @@ import AllPatients from './pages/patients/AllPatients';
 import EditPatient from './pages/patients/EditPatient';
 import NewPatient from './pages/patients/NewPatient';
 import PatientDetails from './pages/patients/PatientDetails';
+import { Route, Routes} from 'react-router-dom'
+import RouteView from './pages/RouteView';
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -28,16 +30,15 @@ function App() {
       <div id="content">
         <TopNav />
         <Menu />
-
-        {/* <Dashboard /> */}
-        {/* <AllPatients /> */}
-        {/* <PatientDetails /> */}
-        {/* <NewPatient /> */}
-        {/* <EditPatient /> */}
-        {/* <AllDoctors /> */}
-        {/* <DoctorDetails /> */}
-        {/* <NewDoctor /> */}
-        <EditDoctor />
+        <Routes>
+          <Route path='/' element={<Dashboard/>} />
+          <Route path='patients' element={<RouteView />} >
+            <Route index element={<AllPatients />} />
+            <Route path='new' element={<NewPatient />} />
+            <Route path=':patientId' element={<PatientDetails />} />
+            <Route path=':patientId/edit' element={<EditPatient />} />
+          </Route>
+        </Routes>
         <Footer />
       </div>
     </div>
