@@ -38,6 +38,12 @@ function App() {
             <Route path=':patientId' element={<PatientDetails />} />
             <Route path=':patientId/edit' element={<EditPatient />} />
           </Route>
+          <Route path='doctors' element={<RouteView />} >
+            <Route index element={<AllDoctors />} />
+            <Route path='new' element={<NewDoctor />} />
+            <Route path=':doctorId' element={<DoctorDetails />} />
+            <Route path=':doctorId/edit' element={<EditDoctor />} />
+          </Route>
         </Routes>
         <Footer />
       </div>

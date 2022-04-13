@@ -35,10 +35,10 @@ export default function Menu() {
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-user"></span> Doctors</a>
 								<div className="dropdown-menu">
-									<a className="dropdown-item" href="add-doctor.html">Add Doctor</a>
-									<a className="dropdown-item" href="doctors.html">All Doctors</a>
-									<a className="dropdown-item" href="about-doctor.html">Doctor Details</a>
-									<a className="dropdown-item" href="edit-doctor.html">Edit Doctor</a>
+									<Link className="dropdown-item" to="/doctors/new">Add Doctor</Link>
+									<Link className="dropdown-item" to="/doctors">All Doctors</Link>
+									{/* <a className="dropdown-item" href="about-doctor.html">Doctor Details</a>
+									<a className="dropdown-item" href="edit-doctor.html">Edit Doctor</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">

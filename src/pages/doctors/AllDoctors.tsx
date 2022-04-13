@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
-
-import { doctors } from '../../interfaces/Doctors';
+import { Doctor, doctors } from '../../interfaces/Doctors';
+import {Link} from 'react-router-dom';
 
 const badgeColor = (status: string) => {
     if (status === 'Available') return 'success';
@@ -10,7 +10,7 @@ const badgeColor = (status: string) => {
 }
 
 const handleRows = () => {
-   return doctors.map((p) => (
+   return doctors.map((d:Doctor) => (
         <tr>
             <td>
                 <div className="custom-control custom-checkbox">
@@ -18,13 +18,13 @@ const handleRows = () => {
                     <label className="custom-control-label" htmlFor="1"></label>
                 </div>
             </td>
-            <td>{p.id}</td>
-            <td>{`${p.firstName} ${p.lastName}`}</td>
-            <td>{p.experience}</td>
-            <td>{p.phone}</td>
-            <td>{p.specialization}</td>
+            <td>{d.id}</td>
+            <td><Link to={{ pathname: `/doctors/${d.id}`}} state={{ doctor: d }} >{`${d.firstName} ${d.lastName}`}</Link></td>
+            <td>{d.experience}</td>
+            <td>{d.phone}</td>
+            <td>{d.specialization}</td>
             <td>
-                <span className={`badge badge-${badgeColor(p.status)}`}>{p.status}</span>
+                <span className={`badge badge-${badgeColor(d.status)}`}>{d.status}</span>
             </td>
         </tr>
     ))

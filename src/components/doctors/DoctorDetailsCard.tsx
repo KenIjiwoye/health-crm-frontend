@@ -1,5 +1,6 @@
 import React from 'react'
 import { Doctor } from '../../interfaces/Doctors'
+import { Link } from 'react-router-dom';
 
 type DoctorDetailsCardProps = {
     doctor: Doctor
@@ -20,8 +21,8 @@ export default function DoctorDetailsCard({doctor}:DoctorDetailsCardProps) {
                                 bulk of the
                                 card's
                                 content.</p>
-                            <button type="button" className="btn btn-success"><span className="ti-pencil-alt"></span> Edit
-                                Doctor</button>
+                            <button type="button" className="btn btn-success"><Link to={`/doctors/${doctor.id}/edit`} state={{ doctor}} ><span className="ti-pencil-alt"></span> Edit
+                                Doctor</Link></button>
                             <button type="button" className="btn btn-danger"><span className="ti-trash"></span> Delete
                                 Doctor</button>
                         </div>
