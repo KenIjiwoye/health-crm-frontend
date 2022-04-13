@@ -15,11 +15,11 @@ export default function Menu() {
 							<li className="nav-item dropdown active">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-home"></span> Dashboard</a>
-								<div className="dropdown-menu">
+								{/* <div className="dropdown-menu">
 									<a className="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical/index.html">Vertical</a>
 									<a className="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical-RTL/index.html">Vertical RTL</a>
 									<a className="dropdown-item" href="index.html">Horizantal</a>
-								</div>
+								</div> */}
 							</li>
 							<li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
