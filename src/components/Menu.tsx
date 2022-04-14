@@ -45,7 +45,7 @@ export default function Menu() {
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-pencil-alt"></span> Appointments</a>
 								<div className="dropdown-menu">
-									<a className="dropdown-item" href="add-appointment.html">Add Appointment</a>
+									<Link className="dropdown-item" to="/appointments/new">Add Appointment</Link>
 									<Link className="dropdown-item" to="/appointments">All Appointments</Link>
 									{/* <a className="dropdown-item" href="about-appointment.html">Appointment Details</a>
 									<a className="dropdown-item" href="edit-appointment.html">Edit Appointment</a> */}

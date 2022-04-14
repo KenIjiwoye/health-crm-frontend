@@ -17,6 +17,7 @@ import { Route, Routes} from 'react-router-dom'
 import RouteView from './pages/RouteView';
 import AllAppointments from './pages/appointments/AllAppointments';
 import AppointmentDetails from './pages/appointments/AppointmentDetails';
+import AddAppointment from './pages/appointments/AddAppointment';
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -48,7 +49,9 @@ function App() {
           </Route>
           <Route path='appointments' element={<RouteView />} >
             <Route index element={<AllAppointments />} />
+            <Route path='new' element={<AddAppointment />} />
             <Route path=':appointmentId' element={<AppointmentDetails />} />
+            <Route path=':appointmentId/edit' element={<AppointmentDetails />} />
           </Route>
         </Routes>
         <Footer />

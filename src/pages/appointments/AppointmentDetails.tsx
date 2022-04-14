@@ -11,7 +11,6 @@ type LocationState = {
 export default function AppointmentDetails() {
     let location = useLocation();
     const { appointment } = location.state as LocationState;
-    console.log('the appt info', appointment)
     return (
         <>
             <PageHeader title='Appointment Details' items={['Appointments', 'Appointment Details']} />

@@ -59,8 +59,8 @@ export default function AppointmentDetailsCard({ appointment }: AppointmentDetai
                         </ul>
                     </nav>
                     {/* <!-- /Export links--> */}
-                    <button type="button" className="btn btn-success mb-3"><span className="ti-pencil-alt"></span> Edit
-                        Appointment</button>
+                    <button type="button" className="btn btn-success mb-3"><Link to={`/appointments/${appointment.id}/edit`} state={{appointment}} ><span className="ti-pencil-alt"></span> Edit
+                        Appointment</Link></button>
                     <button type="button" className="btn btn-danger mb-3"><span className="ti-trash"></span> Delete
                         Appointment</button>
                 </div>
