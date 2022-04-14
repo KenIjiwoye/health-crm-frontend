@@ -43,9 +43,9 @@ export default function Menu() {
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-money"></span> Payments</a>
 								<div className="dropdown-menu">
-									<a className="dropdown-item" href="add-payment.html">Add Payment</a>
-									<a className="dropdown-item" href="payments.html">All Payments</a>
-									<a className="dropdown-item" href="about-payment.html">Payment Invoice</a>
+									<Link className="dropdown-item" to="/payments/new">Add Payment</Link>
+									<Link className="dropdown-item" to="/payments">All Payments</Link>
+									{/* <a className="dropdown-item" href="about-payment.html">Payment Invoice</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">

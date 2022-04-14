@@ -19,6 +19,7 @@ import AllAppointments from './pages/appointments/AllAppointments';
 import AppointmentDetails from './pages/appointments/AppointmentDetails';
 import AddAppointment from './pages/appointments/AddAppointment';
 import EditAppointment from './pages/appointments/EditAppointment';
+import AddPayment from './pages/payments/AddPayment';
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -53,6 +54,12 @@ function App() {
             <Route path='new' element={<AddAppointment />} />
             <Route path=':appointmentId' element={<AppointmentDetails />} />
             <Route path=':appointmentId/edit' element={<EditAppointment />} />
+          </Route>
+          <Route path='payments' element={<RouteView />} >
+            <Route index element={<AddPayment />} />
+            <Route path='new' element={<AddPayment />} />
+            {/* <Route path=':appointmentId' element={<AppointmentDetails />} /> */}
+            {/* <Route path=':appointmentId/edit' element={<EditAppointment />} /> */}
           </Route>
         </Routes>
         <Footer />
