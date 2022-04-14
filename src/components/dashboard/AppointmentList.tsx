@@ -1,16 +1,17 @@
 import React from 'react'
+import { Appointment } from '../../interfaces/Appointments';
 
 type AppointmentListProps = {
-    appointments: []
+    appointments: Appointment[]
 }
 
 const badgeColor = (status: string) => {
-    if (status === 'Completed') return 'success';
+    if (status === 'Active') return 'success';
     if (status === 'Pending') return 'warning';
     if (status === 'Cancelled') return 'danger';
 }
 
-export default function AppointmentList({ appointments }: any) {
+export default function AppointmentList({ appointments }: AppointmentListProps) {
     return (
         <div className="col-md-12">
             <div className="widget-area-2 proclinic-box-shadow">
@@ -28,15 +29,15 @@ export default function AppointmentList({ appointments }: any) {
                             </tr>
                         </thead>
                         <tbody>
-                            {appointments.map((a:any, i:number) => {
+                            {appointments.map((a) => {
 
                                 return (
                                     <tr>
-                                        <td>{a.patientName}</td>
-                                        <td>{a.doctor}</td>
-                                        <td>{a.checkUp}</td>
-                                        <td>{a.date}</td>
-                                        <td>{a.time}</td>
+                                        <td>{a.patientId}</td>
+                                        <td>{a.doctorName}</td>
+                                        <td>{a.department}</td>
+                                        <td>{a.appointmentDate}</td>
+                                        <td>{a.appointmentTime}</td>
                                         <td>
                                             <span className={`badge badge-${badgeColor(a.status)}`}>{a.status}</span>
                                         </td>

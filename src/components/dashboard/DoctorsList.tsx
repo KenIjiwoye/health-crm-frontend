@@ -1,7 +1,8 @@
 import React from 'react'
+import { Doctor } from '../../interfaces/Doctors';
 
 type DoctorsListProps = {
-    doctors: []
+    doctors: Doctor[]
 }
 
 const badgeColor = (status: string) => {
@@ -10,7 +11,7 @@ const badgeColor = (status: string) => {
     if (status === 'Not Available') return 'danger';
 }
 
-export default function DoctorsList({ doctors }:any) {
+export default function DoctorsList({ doctors }:DoctorsListProps) {
     return (
         <div className="col-md-6">
             <div className="widget-area-2 progress-status proclinic-box-shadow">
@@ -25,12 +26,12 @@ export default function DoctorsList({ doctors }:any) {
                             </tr>
                         </thead>
                         <tbody>
-                            {doctors.map((d:any,i:number) => (
+                            {doctors.map((d) => (
                                 <tr>
-                                <td>{d.doctorName}</td>
-                                <td>{d.specialty}</td>
+                                <td>{`${d.firstName} ${d.lastName}`}</td>
+                                <td>{d.specialization}</td>
                                 <td>
-                                    <span className={`badge badge-${badgeColor(d.availability)}`}>{d.availability}</span>
+                                    <span className={`badge badge-${badgeColor(d.status)}`}>{d.status}</span>
                                 </td>
                             </tr>
                             ))}
