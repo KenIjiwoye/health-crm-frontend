@@ -48,7 +48,7 @@ export default function Menu() {
 									{/* <a className="dropdown-item" href="about-payment.html">Payment Invoice</a> */}
 								</div>
 							</li>
-							<li className="nav-item dropdown">
+							{/* <li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-key"></span> Room Allotments</a>
 								<div className="dropdown-menu">
@@ -56,7 +56,7 @@ export default function Menu() {
 									<a className="dropdown-item" href="rooms.html">All Rooms</a>
 									<a className="dropdown-item" href="edit-room.html">Edit Room Allotment</a>
 								</div>
-							</li>
+							</li> */}
 							{/* <li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span className="ti-layout-tab"></span> UI Kit</a>
