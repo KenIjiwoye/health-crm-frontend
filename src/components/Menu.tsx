@@ -13,13 +13,7 @@ export default function Menu() {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item dropdown active">
-								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span className="ti-home"></span> Dashboard</a>
-								{/* <div className="dropdown-menu">
-									<a className="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical/index.html">Vertical</a>
-									<a className="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical-RTL/index.html">Vertical RTL</a>
-									<a className="dropdown-item" href="index.html">Horizantal</a>
-								</div> */}
+								<Link to='/' className="nav-link" ><span className="ti-home"></span> Dashboard</Link>
 							</li>
 							<li className="nav-item dropdown">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -27,8 +21,6 @@ export default function Menu() {
 								<div className="dropdown-menu">
 									<Link className="dropdown-item" to="/patients/new">Add Patient</Link>
 									<Link className="dropdown-item" to='/patients' >All Patients</Link>
-									{/* <Link className="dropdown-item" to='/patients/1' >Patient Details</Link> */}
-									{/* <a className="dropdown-item" href="/patients/1/edit">Edit Patient</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">
@@ -37,8 +29,6 @@ export default function Menu() {
 								<div className="dropdown-menu">
 									<Link className="dropdown-item" to="/doctors/new">Add Doctor</Link>
 									<Link className="dropdown-item" to="/doctors">All Doctors</Link>
-									{/* <a className="dropdown-item" href="about-doctor.html">Doctor Details</a>
-									<a className="dropdown-item" href="edit-doctor.html">Edit Doctor</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">
@@ -47,8 +37,6 @@ export default function Menu() {
 								<div className="dropdown-menu">
 									<Link className="dropdown-item" to="/appointments/new">Add Appointment</Link>
 									<Link className="dropdown-item" to="/appointments">All Appointments</Link>
-									{/* <a className="dropdown-item" href="about-appointment.html">Appointment Details</a>
-									<a className="dropdown-item" href="edit-appointment.html">Edit Appointment</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">
