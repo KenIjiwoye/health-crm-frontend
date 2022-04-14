@@ -15,6 +15,8 @@ import NewPatient from './pages/patients/NewPatient';
 import PatientDetails from './pages/patients/PatientDetails';
 import { Route, Routes} from 'react-router-dom'
 import RouteView from './pages/RouteView';
+import AllAppointments from './pages/appointments/AllAppointments';
+import AppointmentDetails from './pages/appointments/AppointmentDetails';
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -43,6 +45,10 @@ function App() {
             <Route path='new' element={<NewDoctor />} />
             <Route path=':doctorId' element={<DoctorDetails />} />
             <Route path=':doctorId/edit' element={<EditDoctor />} />
+          </Route>
+          <Route path='appointments' element={<RouteView />} >
+            <Route index element={<AllAppointments />} />
+            <Route path=':appointmentId' element={<AppointmentDetails />} />
           </Route>
         </Routes>
         <Footer />

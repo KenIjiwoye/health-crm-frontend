@@ -17,7 +17,7 @@ export const appointments:Appointment[] = [
         patientId: 1,
         doctorName: 'Dr. Dre',
         problem: 'Tone Deaf',
-        status: 'pending',
+        status: 'Pending',
         department: 'Music',
         appointmentDate: '2022-04-10',
         appointmentTime: '1PM-2PM'

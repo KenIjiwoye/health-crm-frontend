@@ -46,9 +46,9 @@ export default function Menu() {
 								 aria-expanded="false"><span className="ti-pencil-alt"></span> Appointments</a>
 								<div className="dropdown-menu">
 									<a className="dropdown-item" href="add-appointment.html">Add Appointment</a>
-									<a className="dropdown-item" href="appointments.html">All Appointments</a>
-									<a className="dropdown-item" href="about-appointment.html">Appointment Details</a>
-									<a className="dropdown-item" href="edit-appointment.html">Edit Appointment</a>
+									<Link className="dropdown-item" to="/appointments">All Appointments</Link>
+									{/* <a className="dropdown-item" href="about-appointment.html">Appointment Details</a>
+									<a className="dropdown-item" href="edit-appointment.html">Edit Appointment</a> */}
 								</div>
 							</li>
 							<li className="nav-item dropdown">
