@@ -23,6 +23,7 @@ interface PaymentModel {
     advancePayment: number;
     paymentType: string;
     paymentDetails: string;
+    amount: number;
 
 }
 
@@ -46,7 +47,8 @@ export const payments: Payment[] = [
             discount: 0,
             advancePayment: 0,
             paymentType: 'Cash',
-            paymentDetails: 'none'
+            paymentDetails: 'none',
+            amount: 25
         },
         status: 'Pending'
     },
@@ -69,7 +71,8 @@ export const payments: Payment[] = [
             discount: 0,
             advancePayment: 0,
             paymentType: 'Cash',
-            paymentDetails: 'none'
+            paymentDetails: 'none',
+            amount: 20
         },
         status: 'Completed'
     },
