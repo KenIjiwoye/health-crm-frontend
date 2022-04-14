@@ -1,6 +1,7 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
 import { Payment, payments } from '../../interfaces/Payments';
+import {Link} from 'react-router-dom';
 
 const badgeColor = (status: string) => {
     if (status === 'Completed') return 'success';
@@ -16,7 +17,7 @@ const handleRows = () => {
                     <label className="custom-control-label" htmlFor="1"></label>
                 </div>
             </td>
-            <td>{p.patientName}</td>
+            <td><Link to={{ pathname: `/payments/${p.id}`}} state={{payment: p}} >{p.patientName}</Link></td>
             <td>{p.doctorName}</td>
             <td>{p.services[0].serviceName}</td>
             <td>{p.payment.amount}</td>

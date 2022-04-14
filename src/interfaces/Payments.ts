@@ -10,9 +10,10 @@ export interface Payment {
     services: PaymentService[];
     payment: PaymentModel;
     status: string;
+    paidInFullDate: string;
 }
 
-interface PaymentService {
+export type PaymentService = {
     id: number;
     serviceName: string;
     cost: number;
@@ -41,16 +42,22 @@ export const payments: Payment[] = [
                 id: 1,
                 serviceName: 'X-ray',
                 cost: 25
-            }
+            },
+            {
+                id: 2,
+                serviceName: 'Malaria test',
+                cost: 20
+            },
         ],
         payment: {
             discount: 0,
             advancePayment: 0,
             paymentType: 'Cash',
-            paymentDetails: 'none',
-            amount: 25
+            paymentDetails: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur id illo incidunt, iste libero quisquam? A aut cumque fuga fugit iusto libero officia optio quasi, quisquam saepe voluptate voluptatibus voluptatum.',
+            amount: 45
         },
-        status: 'Pending'
+        status: 'Pending',
+        paidInFullDate: '2022-04-05'
     },
     {
         id: 2,
@@ -74,6 +81,7 @@ export const payments: Payment[] = [
             paymentDetails: 'none',
             amount: 20
         },
-        status: 'Completed'
+        status: 'Completed',
+        paidInFullDate: '2022-04-10'
     },
 ]

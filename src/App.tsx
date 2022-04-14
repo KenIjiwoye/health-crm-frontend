@@ -21,6 +21,7 @@ import AddAppointment from './pages/appointments/AddAppointment';
 import EditAppointment from './pages/appointments/EditAppointment';
 import AddPayment from './pages/payments/AddPayment';
 import AllPayments from './pages/payments/AllPayments';
+import PaymentInvoice from './pages/payments/PaymentInvoice';
 
 function App() {
   const [loading, setLoading] = React.useState(true);
@@ -59,7 +60,7 @@ function App() {
           <Route path='payments' element={<RouteView />} >
             <Route index element={<AllPayments />} />
             <Route path='new' element={<AddPayment />} />
-            {/* <Route path=':appointmentId' element={<AppointmentDetails />} /> */}
+            <Route path=':paymentId' element={<PaymentInvoice />} />
             {/* <Route path=':appointmentId/edit' element={<EditAppointment />} /> */}
           </Route>
         </Routes>
