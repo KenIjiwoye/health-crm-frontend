@@ -1,8 +1,10 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import { patients } from '../../interfaces/Patient';
+// import { patients } from '../../interfaces/Patient';
+import PatientsController from '../../controllers/PatientsController';
+import { Patient } from '../../interfaces/Patient';
 
 const badgeColor = (status: string) => {
     if (status === 'Completed') return 'success';
@@ -10,10 +12,10 @@ const badgeColor = (status: string) => {
     if (status === 'Cancelled') return 'danger';
 }
 
-const handleRows = () => {
-   return patients.map((p) => (
-       <tr>
-                
+const handleRows = (patients:Patient[]) => {
+    return patients.map((p) => (
+        <tr>
+
             <td>
                 <div className="custom-control custom-checkbox">
                     <input className="custom-control-input" type="checkbox" id="1" />
@@ -21,19 +23,30 @@ const handleRows = () => {
                 </div>
             </td>
             <td>{p.id}</td>
-            <td><Link  to={{pathname: `${p.id}`}} state={{patient: p }}  >{`${p.firstName} ${p.lastName}`}</Link></td>
+            <td><Link to={{ pathname: `${p.id}` }} state={{ patient: p }}  >{`${p.firstName} ${p.lastName}`}</Link></td>
             <td>{p.age}</td>
             <td>{p.phone}</td>
             <td>{p.lastVisit}</td>
             <td>
                 <span className={`badge badge-${badgeColor(p.status)}`}>{p.status}</span>
             </td>
-        
+
         </tr>
     ))
 }
 
 export default function AllPatients() {
+    const [patients, setPatients] = React.useState<Patient[]>([]);
+
+    React.useEffect(() => {
+        const patientsList = async () => {
+            let patients = await PatientsController.getPatients();
+            setPatients(patients);
+        }
+
+        patientsList()
+    }, [])
+
     return (
         <>
             <PageHeader title={'Patients'} items={['Patients', 'All Patients']} />
@@ -61,8 +74,8 @@ export default function AllPatients() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {handleRows()}
-                                        
+                                        {handleRows(patients)}
+
                                     </tbody>
                                 </table>
                                 {/* <!--Export links--> */}
@@ -83,8 +96,8 @@ export default function AllPatients() {
                                     </ul>
                                 </nav>
                                 {/* <!-- /Export links--> */}
-                                <button type="button" className="btn btn-danger mt-3 mb-0"><span className="ti-trash"></span> DELETE</button>
-                                <button type="button" className="btn btn-primary mt-3 mb-0"><span className="ti-pencil-alt"></span> EDIT</button>
+                                {/* <button type="button" className="btn btn-danger mt-3 mb-0"><span className="ti-trash"></span> DELETE</button>
+                                <button type="button" className="btn btn-primary mt-3 mb-0"><span className="ti-pencil-alt"></span> EDIT</button> */}
                             </div>
                         </div>
                     </div>
