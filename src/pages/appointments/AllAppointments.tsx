@@ -1,15 +1,16 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
 import { Appointment, appointments } from '../../interfaces/Appointments';
-import {Link, useNavigate, useLocation } from 'react-router-dom';
+import {Link } from 'react-router-dom';
+import AppointmentsController from '../../controllers/AppointmentsController';
 
 const badgeColor = (status: string) => {
     if (status === 'Active') return 'success';
     if (status === 'Pending') return 'warning';
 }
 
-const handleRows = () => {
-   return appointments.map((a:Appointment) => (
+const handleRows = (appointments:Appointment[]) => {
+   return appointments.map((a) => (
        <tr>
             <td>
                 <div className="custom-control custom-checkbox">
@@ -30,8 +31,18 @@ const handleRows = () => {
 }
 
 export default function AllAppointments() {
-    const navigate = useNavigate();
-    const location = useLocation();
+
+	const [appointments, setAppointments ] = React.useState<Appointment[]>([]);
+
+    React.useEffect(() =>{
+        const appList = async () => {
+            let appointments = await AppointmentsController.getAppointments();
+            setAppointments(appointments);
+        }
+        appList();
+    },[])
+
+
   return (
    <>
     <PageHeader title='Appointments' items={['Appointments', 'Appointments List']} />
@@ -59,7 +70,7 @@ export default function AllAppointments() {
 										</tr>
 									</thead>
 									<tbody>
-										{handleRows()}
+										{handleRows(appointments)}
 									</tbody>
                                 </table>
                                 

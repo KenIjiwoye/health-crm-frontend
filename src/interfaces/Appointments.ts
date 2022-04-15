@@ -11,6 +11,14 @@ export interface Appointment {
 
 }
 
+export interface AppointmentsControllerInterface {
+    addAppointment: (appointment:Appointment) => Promise<Appointment>
+    getAppointments: () => Promise<Appointment[]>
+    getAppointment: (appointmentId:number) => Promise<void>
+    updateAppointments: (appointmentId:number,appointment:Appointment) => Promise<void>
+    deleteAppointments: (appointmentId:number) => Promise<void>
+}
+
 export const appointments:Appointment[] = [
     {
         id: 1,
