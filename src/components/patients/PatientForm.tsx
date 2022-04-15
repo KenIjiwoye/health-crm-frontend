@@ -71,10 +71,10 @@ export default function PatientForm({ patient }: PatientFormProps) {
                     <div className="form-group col-md-6">
                         <label htmlFor="gender">Gender</label>
                         <select {...register('gender', {required: true})} className="form-control" id="gender" defaultValue={patient !== undefined ? patient.gender : ''} >
-                            <option defaultValue='' >Choose...</option>
-                            <option defaultValue='male' >Male</option>
-                            <option defaultValue='female' >Female</option>
-                            <option defaultValue='other' >Other</option>
+                            <option value='' >Choose...</option>
+                            <option value='male' >Male</option>
+                            <option value='female' >Female</option>
+                            <option value='other' >Other</option>
                         </select>
                         {errors.gender && <span style={styles.error}>This field is required</span>}
                     </div>

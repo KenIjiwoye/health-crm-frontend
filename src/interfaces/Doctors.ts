@@ -16,6 +16,14 @@ export interface Doctor {
     status: string;
 }
 
+export interface DoctorsControllerInterface {
+    addDoctor: (doctor:Doctor) => Promise<Doctor>
+    getDoctors: () => Promise<Doctor[]>
+    getDoctor: (doctorId:number) => Promise<void>
+    updateDoctor: (doctorId:number,doctor:Doctor) => Promise<void>
+    deleteDoctor: (doctorId:number) => Promise<void>
+}
+
 export const doctors:Doctor[] = [
     {
         id: 1,

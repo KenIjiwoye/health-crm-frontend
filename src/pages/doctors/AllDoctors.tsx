@@ -1,7 +1,8 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
-import { Doctor, doctors } from '../../interfaces/Doctors';
+import { Doctor } from '../../interfaces/Doctors';
 import {Link} from 'react-router-dom';
+import DoctorsController from '../../controllers/DoctorsController';
 
 const badgeColor = (status: string) => {
     if (status === 'Available') return 'success';
@@ -9,7 +10,7 @@ const badgeColor = (status: string) => {
     if (status === 'Not Available') return 'danger';
 }
 
-const handleRows = () => {
+const handleRows = (doctors:Doctor[]) => {
    return doctors.map((d:Doctor) => (
         <tr>
             <td>
@@ -31,6 +32,16 @@ const handleRows = () => {
 }
 
 export default function AllDoctors() {
+    const [doctors, setDoctors ] = React.useState<Doctor[]>([]);
+
+    React.useEffect(() =>{
+        const doctorslist = async () => {
+            let doctors = await DoctorsController.getDoctors();
+            setDoctors(doctors);
+        }
+        doctorslist();
+    },[])
+
     return (
         <>
             <PageHeader title={'Doctors'} items={['Doctors', 'All Doctors']} />
@@ -58,7 +69,7 @@ export default function AllDoctors() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {handleRows()}
+                                        {handleRows(doctors)}
                                         
                                     </tbody>
                                 </table>
@@ -80,8 +91,8 @@ export default function AllDoctors() {
                                     </ul>
                                 </nav>
                                 {/* <!-- /Export links--> */}
-                                <button type="button" className="btn btn-danger mt-3 mb-0"><span className="ti-trash"></span> DELETE</button>
-                                <button type="button" className="btn btn-primary mt-3 mb-0"><span className="ti-pencil-alt"></span> EDIT</button>
+                                {/* <button type="button" className="btn btn-danger mt-3 mb-0"><span className="ti-trash"></span> DELETE</button>
+                                <button type="button" className="btn btn-primary mt-3 mb-0"><span className="ti-pencil-alt"></span> EDIT</button> */}
                             </div>
                         </div>
                     </div>
