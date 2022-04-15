@@ -1,51 +1,91 @@
 import React from 'react'
 import { Patient } from '../../interfaces/Patient'
+import { useForm } from "react-hook-form";
 
 type PatientFormProps = {
     patient?: Patient
 }
 
-export default function PatientForm({patient}:PatientFormProps) {
-    console.warn('edit patient', patient)
+type FormData = {
+    firstName: string;
+    lastName: string;
+    age: number;
+    dateOfBirth: string;
+    email: string;
+    gender: string;
+    phone: string;
+    photo?: string;
+    address: string;
+
+}
+
+const styles = {
+    error: {
+        color: 'red',
+        fontStyle: 'italics',
+        fontSize: '12px'
+    }
+}
+
+export default function PatientForm({ patient }: PatientFormProps) {
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const onSubmit = handleSubmit((data) => {
+        if (patient !== undefined) return console.log('YOU NEED TO USE EDIT ROUTE!',data)
+        console.log(data)
+    });
+
     return (
         <>
-            <form>
+            <form onSubmit={onSubmit} >
                 <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-3">
+                        <label htmlFor="patient-name">Patient First Name</label>
+                        <input {...register('firstName', {required: true})} type="text" className="form-control" placeholder="Patient first name" id="patient-name" defaultValue={patient !== undefined ? `${patient?.firstName} ${patient?.lastName}` : ''} />
+                        {errors.firstName && <span style={styles.error} >This field is required</span>}
+                    </div>
+                    <div className="form-group col-md-3">
                         <label htmlFor="patient-name">Patient Name</label>
-                        <input type="text" className="form-control" placeholder="Patient name" id="patient-name" value={patient !== undefined ? `${patient?.firstName} ${patient?.lastName}` : ''} />
+                        <input {...register('lastName', {required: true})} type="text" className="form-control" placeholder="Patient last name" id="patient-name" defaultValue={patient !== undefined ? `${patient?.firstName} ${patient?.lastName}` : ''} />
+                        {errors.lastName && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="dob">Date Of Birth</label>
-                        <input type="date" placeholder="Date of Birth" className="form-control" id="dob" value={patient !== undefined ? patient.dateOfBirth : ''} />
+                        <input {...register('dateOfBirth', {required: true})} type="date" placeholder="Date of Birth" className="form-control" id="dob" defaultValue={patient !== undefined ? patient.dateOfBirth : ''} />
+                        {errors.dateOfBirth && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="age">Age</label>
-                        <input type="text" placeholder="Age" className="form-control" id="age" value={patient !== undefined ? patient.age : ''} />
+                        <input {...register('age', {required: true})} type="text" placeholder="Age" className="form-control" id="age" defaultValue={patient !== undefined ? patient.age : ''} />
+                        {errors.age && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="phone">Phone</label>
-                        <input type="text" placeholder="Phone" className="form-control" id="phone" value={patient !== undefined ? patient.phone : ''} />
+                        <input {...register('phone', {required: true})} type="text" placeholder="Phone" className="form-control" id="phone" defaultValue={patient !== undefined ? patient.phone : ''} />
+                        {errors.phone && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="email">Email</label>
-                        <input type="email" placeholder="email" className="form-control" id="Email" value={patient !== undefined ? patient.email : ''} />
+                        <input {...register('email', {required: true})} type="email" placeholder="email" className="form-control" id="Email" defaultValue={patient !== undefined ? patient.email : ''} />
+                        {errors.email && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="gender">Gender</label>
-                        <select className="form-control" id="gender" value={patient !== undefined ? patient.gender : ''} >
-                            <option value='male' >Male</option>
-                            <option value='female' >Female</option>
-                            <option value='other' >Other</option>
+                        <select {...register('gender', {required: true})} className="form-control" id="gender" defaultValue={patient !== undefined ? patient.gender : ''} >
+                            <option defaultValue='' >Choose...</option>
+                            <option defaultValue='male' >Male</option>
+                            <option defaultValue='female' >Female</option>
+                            <option defaultValue='other' >Other</option>
                         </select>
+                        {errors.gender && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-12">
                         <label htmlFor="exampleFormControlTextarea1">Address</label>
-                        <textarea placeholder="Address" className="form-control" id="exampleFormControlTextarea1" rows={3} value={patient !== undefined ? patient.address : ''} ></textarea>
+                        <textarea {...register('address', {required: true})} placeholder="Address" className="form-control" id="exampleFormControlTextarea1" rows={3} defaultValue={patient !== undefined ? patient.address : ''} ></textarea>
+                        {errors.address && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-12">
                         <label htmlFor="file">File</label>
-                        <input type="file" className="form-control" id="file"  value={patient !== undefined ? patient.photo : ''} />
+                        <input {...register('photo')} type="file" className="form-control" id="file" defaultValue={patient !== undefined ? patient.photo : ''} />
                     </div>
 
                     <div className="form-check col-md-12 mb-2">
