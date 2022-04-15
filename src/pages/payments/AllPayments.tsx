@@ -2,14 +2,15 @@ import React from 'react'
 import PageHeader from '../../components/PageHeader'
 import { Payment, payments } from '../../interfaces/Payments';
 import {Link} from 'react-router-dom';
+import PaymentsController from '../../controllers/PaymentsController';
 
 const badgeColor = (status: string) => {
     if (status === 'Completed') return 'success';
     if (status === 'Pending') return 'warning';
 }
 
-const handleRows = () => {
-    return payments.map((p: Payment) => (
+const handleRows = (payments:Payment[]) => {
+    return payments.map((p) => (
         <tr>
             <td>
                 <div className="custom-control custom-checkbox">
@@ -30,6 +31,15 @@ const handleRows = () => {
 }
 
 export default function AllPayments() {
+    const [payments, setPayments ] = React.useState<Payment[]>([]);
+
+    React.useEffect(() =>{
+        const paymentsList = async () => {
+            let payments = await PaymentsController.getPayments();
+            setPayments(payments);
+        }
+        paymentsList();
+    },[])
     return (
         <>
             <PageHeader title='Payments' items={['Payments', 'All Payments']} />
@@ -57,7 +67,7 @@ export default function AllPayments() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {handleRows()}
+                                        {handleRows(payments)}
                                     </tbody>
                                 </table>
 

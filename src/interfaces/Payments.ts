@@ -19,13 +19,21 @@ export type PaymentService = {
     cost: number;
 }
 
-interface PaymentModel {
+export interface PaymentModel {
     discount: number;
     advancePayment: number;
     paymentType: string;
     paymentDetails: string;
     amount: number;
 
+}
+
+export interface PaymentsControllerInterface {
+    addPayment: (payment:Payment) => Promise<Payment>
+    getPayments: () => Promise<Payment[]>
+    getPayment: (paymentId:number) => Promise<void>
+    updatePayment: (paymentId:number,payment:Payment) => Promise<void>
+    deletePayment: (paymentId:number) => Promise<void>
 }
 
 export const payments: Payment[] = [
