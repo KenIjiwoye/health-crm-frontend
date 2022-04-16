@@ -1,9 +1,11 @@
 import React from 'react'
 import { Appointment } from '../../interfaces/Appointments'
 import { useForm } from 'react-hook-form';
+import {useNavigate} from 'react-router-dom';
 
 type AppointmentFormProps = {
     appointment?: Appointment;
+    mutation?: any;
 }
 
 type FormData = {
@@ -26,11 +28,15 @@ const styles = {
 }
 
 
-export default function AppointmentForm({ appointment }: AppointmentFormProps) {
+export default function AppointmentForm({ appointment, mutation }: AppointmentFormProps) {
+    const navigate = useNavigate();
+    const {isLoading} = mutation;
     const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
     const onSubmit = handleSubmit(data => {
         if (appointment !== undefined) return console.log('YOU NEED TO USE EDIT ROUTE!', data)
         console.log(data)
+        mutation.mutate(data);
+        navigate(`/appointments`);
     });
     return (
         <div className="col-md-12">
@@ -93,7 +99,7 @@ export default function AppointmentForm({ appointment }: AppointmentFormProps) {
                             {errors.confirm && <span style={styles.error} >This field is required</span>}
                         </div>
                         <div className="form-group col-md-6 mb-3">
-                            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+                        { isLoading ? (<button type="submit" className="btn btn-primary btn-lg" disabled >Loading...</button>): (<button type="submit" className="btn btn-primary btn-lg">Submit</button>)}
                         </div>
                     </div>
                 </form>

@@ -3,6 +3,8 @@ import PageHeader from '../../components/PageHeader'
 import { Payment, payments } from '../../interfaces/Payments';
 import {Link} from 'react-router-dom';
 import PaymentsController from '../../controllers/PaymentsController';
+import {useQuery} from 'react-query'
+import Preloader from '../../components/Preloader';
 
 const badgeColor = (status: string) => {
     if (status === 'Completed') return 'success';
@@ -31,15 +33,13 @@ const handleRows = (payments:Payment[]) => {
 }
 
 export default function AllPayments() {
-    const [payments, setPayments ] = React.useState<Payment[]>([]);
+    const {isLoading, isError, data:payments, error} = useQuery('payments', PaymentsController.getPayments)
 
-    React.useEffect(() =>{
-        const paymentsList = async () => {
-            let payments = await PaymentsController.getPayments();
-            setPayments(payments);
-        }
-        paymentsList();
-    },[])
+    if(isLoading) return <Preloader />
+
+    // @ts-ignore "error | unknown" message
+    if (isError) return <span>Error: {error.message}</span>
+    
     return (
         <>
             <PageHeader title='Payments' items={['Payments', 'All Payments']} />
@@ -67,7 +67,7 @@ export default function AllPayments() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {handleRows(payments)}
+                                        {payments && handleRows(payments)}
                                     </tbody>
                                 </table>
 

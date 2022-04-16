@@ -3,6 +3,8 @@ import PageHeader from '../../components/PageHeader'
 import { Appointment, appointments } from '../../interfaces/Appointments';
 import {Link } from 'react-router-dom';
 import AppointmentsController from '../../controllers/AppointmentsController';
+import {useQuery} from 'react-query'
+import Preloader from '../../components/Preloader';
 
 const badgeColor = (status: string) => {
     if (status === 'Active') return 'success';
@@ -31,16 +33,12 @@ const handleRows = (appointments:Appointment[]) => {
 }
 
 export default function AllAppointments() {
+	const {isLoading, isError, data:appointments, error} = useQuery('appointments', AppointmentsController.getAppointments)
 
-	const [appointments, setAppointments ] = React.useState<Appointment[]>([]);
+	if(isLoading) return <Preloader />
 
-    React.useEffect(() =>{
-        const appList = async () => {
-            let appointments = await AppointmentsController.getAppointments();
-            setAppointments(appointments);
-        }
-        appList();
-    },[])
+    // @ts-ignore "error | unknown" message
+    if (isError) return <span>Error: {error.message}</span>
 
 
   return (
@@ -70,7 +68,7 @@ export default function AllAppointments() {
 										</tr>
 									</thead>
 									<tbody>
-										{handleRows(appointments)}
+										{appointments && handleRows(appointments)}
 									</tbody>
                                 </table>
                                 

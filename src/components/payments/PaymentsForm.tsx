@@ -1,6 +1,7 @@
 import React from 'react'
 import { PaymentModel, PaymentService } from '../../interfaces/Payments'
 import { useForm } from 'react-hook-form';
+import {useNavigate} from 'react-router-dom';
 
 type FormData = {
     patientId: number;
@@ -23,10 +24,14 @@ const styles = {
 }
 
 
-export default function PaymentsForm() {
+export default function PaymentsForm({mutation}:any) {
+    const navigate = useNavigate();
+    const {isLoading} = mutation;
     const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
     const onSubmit = handleSubmit(data => {
         console.log(data)
+        mutation.mutate(data);
+        navigate(`/payments`);
     });
 
     return (
@@ -119,7 +124,7 @@ export default function PaymentsForm() {
                             {errors.confirm && <span style={styles.error} >This field is required</span>}
                         </div>
                         <div className="form-group col-md-6 mb-3">
-                            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+                        { isLoading ? (<button type="submit" className="btn btn-primary btn-lg" disabled >Loading...</button>): (<button type="submit" className="btn btn-primary btn-lg">Submit</button>)}
                         </div>
                     </div>
                 </form>
