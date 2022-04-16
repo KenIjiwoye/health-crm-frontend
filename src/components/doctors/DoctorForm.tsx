@@ -1,9 +1,11 @@
 import React from 'react'
 import { Doctor } from '../../interfaces/Doctors'
 import {useForm} from 'react-hook-form';
+import {useNavigate} from 'react-router-dom';
 
 type DoctorFormProps = {
     doctor?: Doctor;
+    mutation?: any;
 }
 
 type FormData = {
@@ -29,11 +31,15 @@ const styles = {
     }
 }
 
-export default function DoctorForm({doctor}:DoctorFormProps) {
+export default function DoctorForm({doctor,mutation}:DoctorFormProps) {
+    const navigate = useNavigate();
+    const {isLoading} = mutation;
     const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
   const onSubmit = handleSubmit(data => {
     if (doctor !== undefined) return console.log('YOU NEED TO USE EDIT ROUTE!',data)
         console.log(data)
+        mutation.mutate(data);
+        navigate(`/doctors`);
   });
     return (
         <>
@@ -111,7 +117,7 @@ export default function DoctorForm({doctor}:DoctorFormProps) {
                         </div>
                     </div>
                     <div className="form-group col-md-6 mb-3">
-                        <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+                    { isLoading ? (<button type="submit" className="btn btn-primary btn-lg" disabled >Loading...</button>): (<button type="submit" className="btn btn-primary btn-lg">Submit</button>)}
                     </div>
                 </div>
             </form>

@@ -38,7 +38,6 @@ const handleRows = (patients:Patient[]) => {
 }
 
 export default function AllPatients() {
-    // const [patients, setPatients] = React.useState<Patient[]>([]);
     const {isLoading, isError, data:patients, error} = useQuery('patients', PatientsController.getPatients)
 
 

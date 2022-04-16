@@ -3,6 +3,8 @@ import PageHeader from '../../components/PageHeader'
 import { Doctor } from '../../interfaces/Doctors';
 import {Link} from 'react-router-dom';
 import DoctorsController from '../../controllers/DoctorsController';
+import {useQuery} from 'react-query'
+import Preloader from '../../components/Preloader';
 
 const badgeColor = (status: string) => {
     if (status === 'Available') return 'success';
@@ -32,15 +34,12 @@ const handleRows = (doctors:Doctor[]) => {
 }
 
 export default function AllDoctors() {
-    const [doctors, setDoctors ] = React.useState<Doctor[]>([]);
+    const {isLoading, isError, data:doctors, error} = useQuery('doctors', DoctorsController.getDoctors)
 
-    React.useEffect(() =>{
-        const doctorslist = async () => {
-            let doctors = await DoctorsController.getDoctors();
-            setDoctors(doctors);
-        }
-        doctorslist();
-    },[])
+    if(isLoading) return <Preloader />
+
+    // @ts-ignore "error | unknown" message
+    if (isError) return <span>Error: {error.message}</span>
 
     return (
         <>
@@ -69,7 +68,7 @@ export default function AllDoctors() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {handleRows(doctors)}
+                                        {doctors && handleRows(doctors)}
                                         
                                     </tbody>
                                 </table>
