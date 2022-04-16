@@ -1,3 +1,4 @@
+import format from 'date-fns/format'
 
 export interface Patient {
     id: number;
@@ -24,8 +25,8 @@ export const patients:Patient[] =[
         email: 'j.kumeh@gmail.com',
         gender: 'male',
         address: 'St. Paul Bridge, Monrovia, Liberia',
-        dateOfBirth: '05-10-2001',
-        lastVisit: '2022-04-04',
+        dateOfBirth: format(new Date('2001-05-10'), 'MM/dd/yyyy'),
+        lastVisit: format(new Date('2022-04-04'), 'MM/dd/yyyy'),
         status: 'Pending'
     },
     {
@@ -37,8 +38,8 @@ export const patients:Patient[] =[
         email: 'j.kumeh@gmail.com',
         gender: 'male',
         address: 'St. Paul Bridge, Monrovia, Liberia',
-        dateOfBirth: '05-10-1996',
-        lastVisit: '2022-04-04',
+        dateOfBirth: format(new Date('1996-05-10'), 'MM/dd/yyyy'),
+        lastVisit: format(new Date('2022-04-04'), 'MM/dd/yyyy'),
         status: 'Cancelled'
     },
     {
@@ -50,8 +51,8 @@ export const patients:Patient[] =[
         email: 'j.snow@the-north.com',
         gender: 'male',
         address: 'North of the Wall',
-        dateOfBirth: '05-10-1992',
-        lastVisit: '2022-04-04',
+        dateOfBirth: format(new Date('1992-05-10'), 'MM/dd/yyyy'),
+        lastVisit: format(new Date('2022-04-04'), 'MM/dd/yyyy'),
         status: 'Completed'
     },
     {
@@ -63,8 +64,8 @@ export const patients:Patient[] =[
         email: 's.stark@the-north.com',
         gender: 'female',
         address: 'Kings Landing',
-        dateOfBirth: '05-10-1997',
-        lastVisit: '2022-04-04',
+        dateOfBirth: format(new Date('1997-05-10'), 'MM/dd/yyyy'),
+        lastVisit: format(new Date('2022-04-04'), 'MM/dd/yyyy'),
         status: 'Completed'
     },
 ]

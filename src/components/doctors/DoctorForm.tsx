@@ -2,6 +2,8 @@ import React from 'react'
 import { Doctor } from '../../interfaces/Doctors'
 import {useForm} from 'react-hook-form';
 import {useNavigate} from 'react-router-dom';
+import format from 'date-fns/format'
+
 
 type DoctorFormProps = {
     doctor?: Doctor;
@@ -57,7 +59,7 @@ export default function DoctorForm({doctor,mutation}:DoctorFormProps) {
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="dob">Date Of Birth</label>
-                        <input {...register('dateOfBirth', {required: true})} type="date" placeholder="Date of Birth" className="form-control" id="dob" defaultValue={doctor !== undefined ? doctor.dateOfBirth : ''} />
+                        <input {...register('dateOfBirth', {required: true})} type="date" placeholder="Date of Birth" className="form-control" id="dob" defaultValue={doctor !== undefined ? doctor.dateOfBirth : format(new Date(), 'MM/dd/yyyy') } />
                         {errors.dateOfBirth && <span style={styles.error} >This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">

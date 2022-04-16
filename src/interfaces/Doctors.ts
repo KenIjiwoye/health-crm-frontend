@@ -1,3 +1,4 @@
+import format from 'date-fns/format'
 
 export interface Doctor {
     id: number;
@@ -31,7 +32,7 @@ export const doctors:Doctor[] = [
         lastName: 'Beatz',
         age: 50,
         email: 'beatzbydre@gmail.com',
-        dateOfBirth: '1970-01-01',
+        dateOfBirth: format(new Date('1970-01-01'), 'MM/dd/yyyy'),
         experience: 30,
         phone: '0880552211',
         gender: 'male',
@@ -45,7 +46,7 @@ export const doctors:Doctor[] = [
         lastName: 'TV',
         age: 60,
         email: 'drdrew@gmail.com',
-        dateOfBirth: '1970-01-01',
+        dateOfBirth: format(new Date('1970-01-01'), 'MM/dd/yyyy'),
         experience: 40,
         phone: '0880552211',
         gender: 'male',
@@ -59,7 +60,7 @@ export const doctors:Doctor[] = [
         lastName: 'TV',
         age: 70,
         email: 'drdrew@gmail.com',
-        dateOfBirth: '1970-01-01',
+        dateOfBirth: format(new Date('1970-01-01'), 'MM/dd/yyyy'),
         experience: 50,
         phone: '0880552211',
         gender: 'male',

@@ -2,6 +2,7 @@ import React from 'react'
 import { Patient } from '../../interfaces/Patient'
 import { useForm } from "react-hook-form";
 import {useNavigate} from 'react-router-dom';
+import format from 'date-fns/format'
 
 type PatientFormProps = {
     patient?: Patient;
@@ -12,7 +13,7 @@ type FormData = {
     firstName: string;
     lastName: string;
     age: number;
-    dateOfBirth: string;
+    dateOfBirth: Date;
     email: string;
     gender: string;
     phone: string;
@@ -56,7 +57,7 @@ export default function PatientForm({ patient, mutation }: PatientFormProps) {
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="dob">Date Of Birth</label>
-                        <input {...register('dateOfBirth', {required: true})} type="date" placeholder="Date of Birth" className="form-control" id="dob" defaultValue={patient !== undefined ? patient.dateOfBirth : ''} />
+                        <input {...register('dateOfBirth', {required: true})} type="date" placeholder="Date of Birth" className="form-control" id="dob" defaultValue={patient !== undefined ? patient.dateOfBirth : format(new Date(), 'MM/dd/yyyy')} />
                         {errors.dateOfBirth && <span style={styles.error}>This field is required</span>}
                     </div>
                     <div className="form-group col-md-6">
