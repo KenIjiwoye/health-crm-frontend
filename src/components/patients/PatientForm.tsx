@@ -1,9 +1,11 @@
 import React from 'react'
 import { Patient } from '../../interfaces/Patient'
 import { useForm } from "react-hook-form";
+import {useNavigate} from 'react-router-dom';
 
 type PatientFormProps = {
-    patient?: Patient
+    patient?: Patient;
+    mutation?: any
 }
 
 type FormData = {
@@ -27,11 +29,18 @@ const styles = {
     }
 }
 
-export default function PatientForm({ patient }: PatientFormProps) {
+export default function PatientForm({ patient, mutation }: PatientFormProps) {
+    // const [isLoading, setIsLoading] = React.useState(false);
+    const navigate = useNavigate();
+    const {isLoading} = mutation;
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     const onSubmit = handleSubmit((data) => {
+        // setIsLoading(true)
         if (patient !== undefined) return console.log('YOU NEED TO USE EDIT ROUTE!',data)
         console.log(data)
+        mutation.mutate(data);
+        navigate(`/patients`);
+        // setIsLoading(false)
     });
 
     return (
@@ -97,7 +106,8 @@ export default function PatientForm({ patient }: PatientFormProps) {
                         </div>
                     </div>
                     <div className="form-group col-md-6 mb-3">
-                        <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+                        { isLoading ? (<button type="submit" className="btn btn-primary btn-lg" disabled >Loading...</button>): (<button type="submit" className="btn btn-primary btn-lg">Submit</button>)}
+                         {/* <button type="submit" className="btn btn-primary btn-lg">Submit</button> */}
                     </div>
                 </div>
             </form>

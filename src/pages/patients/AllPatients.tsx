@@ -1,10 +1,12 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
 import { Link } from 'react-router-dom'
+import {useQuery} from 'react-query'
 
 // import { patients } from '../../interfaces/Patient';
 import PatientsController from '../../controllers/PatientsController';
 import { Patient } from '../../interfaces/Patient';
+import Preloader from '../../components/Preloader';
 
 const badgeColor = (status: string) => {
     if (status === 'Completed') return 'success';
@@ -36,16 +38,14 @@ const handleRows = (patients:Patient[]) => {
 }
 
 export default function AllPatients() {
-    const [patients, setPatients] = React.useState<Patient[]>([]);
+    // const [patients, setPatients] = React.useState<Patient[]>([]);
+    const {isLoading, isError, data:patients, error} = useQuery('patients', PatientsController.getPatients)
 
-    React.useEffect(() => {
-        const patientsList = async () => {
-            let patients = await PatientsController.getPatients();
-            setPatients(patients);
-        }
 
-        patientsList()
-    }, [])
+    if(isLoading) return <Preloader />
+
+    // @ts-ignore "error | unknown" message
+    if (isError) return <span>Error: {error.message}</span>
 
     return (
         <>
@@ -74,8 +74,7 @@ export default function AllPatients() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {handleRows(patients)}
-
+                                        {patients && handleRows(patients)}
                                     </tbody>
                                 </table>
                                 {/* <!--Export links--> */}
