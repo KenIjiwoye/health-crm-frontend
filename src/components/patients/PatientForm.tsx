@@ -30,17 +30,14 @@ const styles = {
 }
 
 export default function PatientForm({ patient, mutation }: PatientFormProps) {
-    // const [isLoading, setIsLoading] = React.useState(false);
     const navigate = useNavigate();
     const {isLoading} = mutation;
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     const onSubmit = handleSubmit((data) => {
-        // setIsLoading(true)
         if (patient !== undefined) return console.log('YOU NEED TO USE EDIT ROUTE!',data)
         console.log(data)
         mutation.mutate(data);
         navigate(`/patients`);
-        // setIsLoading(false)
     });
 
     return (
